@@ -34,8 +34,7 @@ exports.getbestProfession = async function (req, res) {
             where: {
               paid: 1,
               paymentDate: {
-                [Op.gte]: new Date(startDate),
-                [Op.lte]: new Date(endDate),
+                [Op.between]: [startDate, endDate],
               },
             },
           },
